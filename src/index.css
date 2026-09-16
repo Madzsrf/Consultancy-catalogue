@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Custom Scrollbar styled for brown tones */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--tw-bg-stone-100, #f5f5f4);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--tw-bg-stone-400, #a8a29e);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--tw-bg-stone-500, #78716c);
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0c0a09; /* stone-950 */
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #44403c; /* stone-700 */
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* Smooth Fade-in & Slide-up Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
