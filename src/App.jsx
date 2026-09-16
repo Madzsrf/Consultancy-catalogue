@@ -201,7 +201,7 @@ export default function App() {
 
               {/* WhatsApp Button */}
               <a 
-                href={`https://wa.me/919876543210?text=Hello%20${t.brand}!`}
+                href={`https://wa.me/919836345800?text=Hello%20${t.brand}!`}
                 target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white px-4 md:px-5 py-2 rounded-full shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
               >
@@ -328,7 +328,7 @@ export default function App() {
                             ₹{product.price.toLocaleString('en-IN')}
                           </span>
                           <a 
-                            href={`https://wa.me/919876543210?text=I'm%20interested%20in%20${encodeURIComponent(product.name.en)}`}
+                            href={`https://wa.me/919836345800?text=I'm%20interested%20in%20${encodeURIComponent(product.name.en)}`}
                             target="_blank" rel="noopener noreferrer"
                             className="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white hover:shadow-md transition-all active:scale-95"
                             title="Message on WhatsApp"
