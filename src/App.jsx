@@ -40,22 +40,21 @@ const ScrollReveal = ({ children, className = "", delay = 0 }) => {
 const translations = {
   en: {
     brand: "Sachhetvastu",
-    waBtn: "WhatsApp Us",
-    heroTag: "CONSULTING EXCELLENCE",
+    navHome: "Home",
+    navCatalog: "Catalog",
+    bookCall: "Book Discovery Call",
+    heroTag: "VIBRANT SPACES & ENERGIES",
     heroTitle1: "Harmonize Your",
     heroTitle2: "Living Spaces",
-    heroDesc: "Expert Vastu guidance tailored to align your environment with natural energies, maximizing prosperity, health, and peace of mind.",
-    bookCall: "Book Discovery Call",
-    viewCatalog: "View Catalog",
+    heroDesc: "Expert Vastu guidance, numerology, and healing modalities tailored to align your environment with natural energies, maximizing prosperity, health, and peace of mind.",
+    viewCatalog: "Explore Catalog",
     aboutTitle1: "The Science of",
-    aboutTitle2: "Vastu Shastra",
+    aboutTitle2: "Vastu & Energy",
     aboutDesc: "Vastu is the ancient Indian science of architecture and design, aimed at creating a harmonious environment. By balancing the five elements of nature—earth, water, fire, air, and space—we can unlock positive energy, bringing prosperity, happiness, and health into your residential and commercial spaces.",
-    expertise: "Our Expertise",
-    catalogTitle: "Catalog",
-    catalogDesc: "Resources, consultations, and energy remedies to elevate your space.",
+    servicesTitle: "Services Offered",
     testimonialsTitle: "Client Success Stories",
     contactTitle: "Get in Touch",
-    contactDesc: "Ready to harmonize your space? Leave your details below and we will get back to you shortly.",
+    contactDesc: "Ready to harmonize your space? Leave your details below and view our complete catalog of professional services.",
     formName: "Full Name",
     formEmail: "Email Address",
     formPhone: "Phone Number",
@@ -63,26 +62,31 @@ const translations = {
     formResidential: "Residential",
     formCommercial: "Commercial",
     formSubmit: "Send Request",
-    footerRights: "All rights reserved."
+    footerRights: "All rights reserved.",
+    searchPlaceholder: "Search services...",
+    allCategories: "All Services",
+    numerology: "Numerology",
+    vastu: "Vastu Consultation",
+    healing: "Healing",
+    backToHome: "← Back to Home"
   },
   hi: {
     brand: "सचेतवास्तु",
-    waBtn: "संपर्क करें",
-    heroTag: "उत्कृष्ट परामर्श",
+    navHome: "होम",
+    navCatalog: "कैटलॉग",
+    bookCall: "परामर्श बुक करें",
+    heroTag: "ऊर्जा और वास्तु उत्कृष्टता",
     heroTitle1: "अपने स्थानों को",
     heroTitle2: "सामंजस्यपूर्ण बनाएं",
-    heroDesc: "विशेषज्ञ वास्तु मार्गदर्शन आपके पर्यावरण को प्राकृतिक ऊर्जा के साथ संरेखित करने के लिए, जिससे समृद्धि, स्वास्थ्य और मन की शांति अधिकतम हो।",
-    bookCall: "परामर्श बुक करें",
+    heroDesc: "विशेषज्ञ वास्तु मार्गदर्शन, अंक ज्योतिष और हीलिंग पद्धतियाँ जो आपके पर्यावरण को प्राकृतिक ऊर्जा के साथ संरेखित करती हैं।",
     viewCatalog: "कैटलॉग देखें",
     aboutTitle1: "विज्ञान:",
-    aboutTitle2: "वास्तु शास्त्र",
-    aboutDesc: "वास्तु वास्तुकला और डिजाइन का प्राचीन भारतीय विज्ञान है, जिसका उद्देश्य एक सामंजस्यपूर्ण वातावरण बनाना है। प्रकृति के पांच तत्वों—पृथ्वी, जल, अग्नि, वायु और अंतरिक्ष—को संतुलित करके, हम सकारात्मक ऊर्जा को खोल सकते हैं, जिससे आपके आवासीय और व्यावसायिक स्थानों में समृद्धि आती है।",
-    expertise: "हमारी विशेषज्ञता",
-    catalogTitle: "कैटलॉग",
-    catalogDesc: "आपके स्थान को समृद्ध बनाने के लिए संसाधन, परामर्श और उपाय।",
+    aboutTitle2: "वास्तु और ऊर्जा",
+    aboutDesc: "वास्तु वास्तुकला और डिजाइन का प्राचीन भारतीय विज्ञान है। प्रकृति के पांच तत्वों को संतुलित करके, हम सकारात्मक ऊर्जा को खोलते हैं, जिससे समृद्धि और शांति आती है।",
+    servicesTitle: "प्रदान की जाने वाली सेवाएँ",
     testimonialsTitle: "ग्राहकों के अनुभव",
     contactTitle: "हमसे संपर्क करें",
-    contactDesc: "क्या आप अपने स्थान को सामंजस्यपूर्ण बनाने के लिए तैयार हैं? अपना विवरण नीचे दें और हम आपसे संपर्क करेंगे।",
+    contactDesc: "क्या आप अपने स्थान को सामंजस्यपूर्ण बनाने के लिए तैयार हैं? अपना विवरण नीचे दें और हमारा संपूर्ण कैटलॉग देखें।",
     formName: "पूरा नाम",
     formEmail: "ईमेल पता",
     formPhone: "फोन नंबर",
@@ -90,39 +94,94 @@ const translations = {
     formResidential: "आवासीय",
     formCommercial: "व्यावसायिक",
     formSubmit: "अनुरोध भेजें",
-    footerRights: "सर्वाधिकार सुरक्षित।"
+    footerRights: "सर्वाधिकार सुरक्षित。",
+    searchPlaceholder: "सेवाएँ खोजें...",
+    allCategories: "सभी सेवाएँ",
+    numerology: "अंक ज्योतिष (Numerology)",
+    vastu: "वास्तु परामर्श (Vastu)",
+    healing: "हीलिंग (Healing)",
+    backToHome: "← होम पर वापस जाएँ"
   }
 };
 
-const services = [
+const catalogItems = [
+  // Numerology
   { 
-    id: 1, icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6", 
-    title: { en: "Spatial Planning", hi: "स्थानिक योजना" }, 
-    description: { en: "Strategic layout designs to optimize energy flow and bring harmony to your living spaces.", hi: "ऊर्जा प्रवाह को अनुकूलित करने और आपके रहने के स्थानों में सामंजस्य लाने के लिए रणनीतिक लेआउट।" } 
+    id: 1, categoryKey: "numerology", price: 3200, 
+    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Name Correction", hi: "नाम सुधार (Name Correction)" }, 
+    desc: { en: "Auspicious name adjustments for enhanced personal vibration.", hi: "बेहतर व्यक्तिगत कंपन के लिए शुभ नाम समायोजन।" } 
   },
   { 
-    id: 2, icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z", 
-    title: { en: "Energy Auditing", hi: "ऊर्जा ऑडिटिंग" }, 
-    description: { en: "Comprehensive review of elemental balance, identifying blocks and suggesting remedies.", hi: "तत्वों के संतुलन की व्यापक समीक्षा, रुकावटों की पहचान करना और उपाय सुझाना।" } 
+    id: 2, categoryKey: "numerology", price: 3200, 
+    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Vehicle, House & Phone Number Suggestions", hi: "वाहन, मकान और फोन नंबर सुझाव" }, 
+    desc: { en: "Aligning everyday digits with your lucky numerology matrix.", hi: "दैनिक अंकों को आपके भाग्यशाली अंक ज्योतिष मैट्रिक्स के साथ संरेखित करना।" } 
   },
   { 
-    id: 3, icon: "M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z", 
-    title: { en: "Site Alignment", hi: "साइट संरेखण" }, 
-    description: { en: "In-depth directional analysis for new properties to ensure prosperity before construction.", hi: "निर्माण से पहले समृद्धि सुनिश्चित करने के लिए नई संपत्तियों का गहन दिशात्मक विश्लेषण।" } 
-  }
-];
+    id: 3, categoryKey: "numerology", price: 3200, 
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop",
+    name: { en: "DOB Analysis & Life Transforming Remedies", hi: "जन्मतिथि विश्लेषण और जीवन बदलने वाले उपाय" }, 
+    desc: { en: "Detailed date-of-birth breakdown with practical corrective measures.", hi: "व्यावहारिक सुधारात्मक उपायों के साथ विस्तृत जन्मतिथि विश्लेषण।" } 
+  },
+  { 
+    id: 4, categoryKey: "numerology", price: 3200, 
+    image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Newborn Baby Name Recommendation", hi: "नवजात शिशु का नामकरण सुझाव" }, 
+    desc: { en: "Vibrationally aligned auspicious naming for newborns.", hi: "नवजात शिशुओं के लिए ऊर्जावान रूप से संरेखित शुभ नामकरण।" } 
+  },
+  { 
+    id: 5, categoryKey: "numerology", price: 5500, 
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Complete Numerology Consultation", hi: "संपूर्ण अंक ज्योतिष परामर्श" }, 
+    desc: { en: "Comprehensive numerological deep dive covering all life aspects.", hi: "सभी जीवन पहलुओं को कवर करने वाली व्यापक अंक ज्योतिष रिपोर्ट।" } 
+  },
 
-const products = [
-  { id: 1, price: 2499, category: { en: "Digital", hi: "डिजिटल" }, name: { en: "Vastu Framework Template", hi: "वास्तु फ्रेमवर्क टेम्पलेट" } },
-  { id: 2, price: 5999, category: { en: "Service", hi: "सेवा" }, name: { en: "1-on-1 Consultation (1hr)", hi: "1-ऑन-1 परामर्श (1 घंटा)" } },
-  { id: 3, price: 999, category: { en: "Physical", hi: "भौतिक" }, name: { en: "Vastu Energy Planner 2027", hi: "वास्तु एनर्जी प्लानर 2027" } },
-  { id: 4, price: 8999, category: { en: "Digital", hi: "डिजिटल" }, name: { en: "Property Analysis Report", hi: "संपत्ति विश्लेषण रिपोर्ट" } },
-  { id: 5, price: 3499, category: { en: "Digital", hi: "डिजिटल" }, name: { en: "Office Layout Blueprint", hi: "कार्यालय लेआउट ब्लूप्रिंट" } },
-  { id: 6, price: 4499, category: { en: "Service", hi: "सेवा" }, name: { en: "Commercial Site Visit", hi: "व्यावसायिक साइट विजिट" } },
-  { id: 7, price: 1499, category: { en: "Physical", hi: "भौतिक" }, name: { en: "Copper Helix Energy Remedy", hi: "कॉपर हेलिक्स एनर्जी रेमेडी" } },
-  { id: 8, price: 12999, category: { en: "Service", hi: "सेवा" }, name: { en: "Complete Villa Energy Scan", hi: "पूर्ण विला एनर्जी स्कैन" } },
-  { id: 9, price: 1899, category: { en: "Physical", hi: "भौतिक" }, name: { en: "Brass Swastik Energy Pyramid", hi: "ब्रास स्वास्तिक एनर्जी पिरामिड" } },
-  { id: 10, price: 18999, category: { en: "Service", hi: "सेवा" }, name: { en: "Industrial & Factory Vastu Audit", hi: "औद्योगिक एवं फैक्ट्री वास्तु ऑडिट" } }
+  // Vastu Consultation
+  { 
+    id: 6, categoryKey: "vastu", price: 10000, 
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Online Vastu Consultations (Residential / Business)", hi: "ऑनलाइन वास्तु परामर्श (आवासीय / व्यावसायिक)" }, 
+    desc: { en: "Remote blueprint analysis and energy correction guidance.", hi: "रिमोट ब्लूप्रिंट विश्लेषण और ऊर्जा सुधार मार्गदर्शन।" } 
+  },
+  { 
+    id: 7, categoryKey: "vastu", price: 23000, 
+    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Residential Vastu (Local Site Visit)", hi: "आवासीय वास्तु (लोकल साइट विजिट)" }, 
+    desc: { en: "For properties up to 2,000 sq. ft. per floor.", hi: "2,000 वर्ग फुट प्रति मंजिल तक की संपत्तियों के लिए।" } 
+  },
+  { 
+    id: 8, categoryKey: "vastu", price: 32000, 
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Commercial Vastu (Local Site Visit)", hi: "व्यावसायिक वास्तु (लोकल साइट विजिट)" }, 
+    desc: { en: "For commercial spaces up to 2,000 sq. ft. per floor.", hi: "2,000 वर्ग फुट प्रति मंजिल तक के व्यावसायिक स्थानों के लिए।" } 
+  },
+  { 
+    id: 9, categoryKey: "vastu", price: 55000, 
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Factory Vastu (Local Site Visit)", hi: "फैक्ट्री वास्तु (लोकल साइट विजिट)" }, 
+    desc: { en: "For industrial units & factories up to 5,000 sq. ft. per floor.", hi: "5,000 वर्ग फुट प्रति मंजिल तक की औद्योगिक इकाइयों और फैक्ट्रियों के लिए।" } 
+  },
+
+  // Healing
+  { 
+    id: 10, categoryKey: "healing", price: 5000, 
+    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Reiki Healing (Long Distance with Symbols - 5 Days)", hi: "रेiki हीलिंग (दूरस्थ प्रतीकों के साथ - 5 दिन)" }, 
+    desc: { en: "Powerful distance energy clearing and chakra balancing over 5 days.", hi: "5 दिनों में शक्तिशाली दूरस्थ ऊर्जा सफाई और चक्र संतुलन।" } 
+  },
+  { 
+    id: 11, categoryKey: "healing", price: 5000, 
+    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Angelic Healing (5 Days)", hi: "एंजेलिक हीलिंग (5 दिन)" }, 
+    desc: { en: "Divine light intervention and emotional trauma clearing.", hi: "दिव्य प्रकाश हस्तक्षेप और भावनात्मक आघात सफाई।" } 
+  },
+  { 
+    id: 12, categoryKey: "healing", price: 11000, 
+    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=800&auto=format&fit=crop",
+    name: { en: "Angelic Healing (11 Days - Deep Immersion)", hi: "एंजेलिक हीलिंग (11 दिन - गहन सत्र)" }, 
+    desc: { en: "Extended 11-day intensive spiritual rejuvenation program.", hi: "विस्तृत 11-दिवसीय गहन आध्यात्मिक कायाकल्प कार्यक्रम।" } 
+  }
 ];
 
 const reviews = [
@@ -135,6 +194,10 @@ export default function App() {
   const [lang, setLang] = useState('en');
   const t = translations[lang];
 
+  const [currentPage, setCurrentPage] = useState('home');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
   });
@@ -144,8 +207,16 @@ export default function App() {
   }, [isDarkMode]);
 
   const scrollToSection = (id) => {
-    const section = document.getElementById(id);
-    if (section) section.scrollIntoView({ behavior: 'smooth' });
+    if (currentPage !== 'home') {
+      setCurrentPage('home');
+      setTimeout(() => {
+        const section = document.getElementById(id);
+        if (section) section.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      const section = document.getElementById(id);
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleFormSubmit = (e) => {
@@ -157,22 +228,37 @@ export default function App() {
     e.target.reset();
   };
 
+  const filteredProducts = catalogItems.filter(item => {
+    const matchesCategory = selectedCategory === 'all' || item.categoryKey === selectedCategory;
+    const query = searchQuery.toLowerCase();
+    const matchesSearch = item.name.en.toLowerCase().includes(query) || item.name.hi.toLowerCase().includes(query);
+    return matchesCategory && matchesSearch;
+  });
+
   return (
     <div className={isDarkMode ? 'dark' : ''}>
-      <div className="min-h-screen transition-colors duration-500 bg-[#FAF8F5] dark:bg-[#1A1614] text-stone-800 dark:text-stone-200 selection:bg-amber-200 selection:text-amber-900 dark:selection:bg-amber-900 dark:selection:text-amber-100">
+      <div className="min-h-screen transition-colors duration-500 bg-[#FAF8F5] dark:bg-[#1A1614] text-stone-800 dark:text-stone-200 selection:bg-amber-200 selection:text-amber-900 dark:selection:bg-amber-900 dark:selection:text-amber-100 font-sans">
         
         {/* Navigation */}
-        <nav className="sticky top-0 z-50 transition-all duration-300 bg-[#FAF8F5]/80 dark:bg-[#1A1614]/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
+        <nav className="sticky top-0 z-50 transition-all duration-300 bg-[#FAF8F5]/85 dark:bg-[#1A1614]/85 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
           <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-700 to-amber-900 dark:from-amber-600 dark:to-orange-800 flex items-center justify-center shadow-lg shadow-amber-900/20">
-                <span className="text-white font-bold text-sm tracking-widest">SV</span>
-              </div>
-              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-500">
+            {/* Logo / Brand Image */}
+            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <img src="/logo.png" alt="Sachhetvastu Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
+              <h1 className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-400">
                 {t.brand}
               </h1>
+            </div>
+
+            {/* Nav Links */}
+            <div className="hidden md:flex items-center gap-6 font-medium text-sm">
+              <button onClick={() => setCurrentPage('home')} className={`hover:text-amber-700 transition-colors ${currentPage === 'home' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
+                {t.navHome}
+              </button>
+              <button onClick={() => setCurrentPage('catalog')} className={`hover:text-amber-700 transition-colors ${currentPage === 'catalog' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
+                {t.navCatalog}
+              </button>
             </div>
             
             {/* Controls */}
@@ -181,7 +267,7 @@ export default function App() {
               {/* Language Toggle */}
               <button 
                 onClick={() => setLang(lang === 'en' ? 'hi' : 'en')}
-                className="px-3 py-1.5 rounded-full text-xs font-bold bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-stone-700 transition-colors tracking-widest uppercase"
+                className="px-3 py-1.5 rounded-full text-xs font-bold bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-stone-700 transition-colors tracking-widest uppercase shadow-sm"
               >
                 {lang === 'en' ? 'HI' : 'EN'}
               </button>
@@ -189,7 +275,7 @@ export default function App() {
               {/* Dark Mode Toggle */}
               <button 
                 onClick={() => setIsDarkMode(!isDarkMode)}
-                className="p-2 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-amber-400 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors"
+                className="p-2 rounded-full bg-stone-200 dark:bg-stone-800 text-stone-600 dark:text-amber-400 hover:bg-stone-300 dark:hover:bg-stone-700 transition-colors shadow-sm"
                 title="Toggle Theme"
               >
                 {isDarkMode ? (
@@ -199,274 +285,396 @@ export default function App() {
                 )}
               </button>
 
-              {/* WhatsApp Button */}
-              <a 
-                href={`https://wa.me/919836345800?text=Hello%20${t.brand}!`}
-                target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1DA851] text-white px-4 md:px-5 py-2 rounded-full shadow-sm transition-all hover:shadow-md hover:-translate-y-0.5"
+              {/* Header Book Call CTA */}
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white px-5 py-2 rounded-full shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
               >
-                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-                </svg>
-                <span className="font-semibold text-sm hidden md:inline">{t.waBtn}</span>
-              </a>
+                {t.bookCall}
+              </button>
             </div>
           </div>
         </nav>
 
-        {/* Hero Section */}
-        <header className="relative pt-32 pb-20 px-6 overflow-hidden">
-          <ScrollReveal delay={0}>
-            <div className="max-w-4xl mx-auto text-center">
-              <span className="inline-block py-1 px-3 rounded-full bg-amber-100 dark:bg-stone-900 border border-amber-200 dark:border-stone-700 text-amber-900 dark:text-amber-500 text-sm font-bold tracking-widest mb-6">
-                {t.heroTag}
-              </span>
-              <h2 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight text-stone-900 dark:text-stone-100">
-                {t.heroTitle1} <br className="hidden md:block"/>
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 to-amber-900 dark:from-amber-400 dark:to-amber-600">
-                  {t.heroTitle2}
-                </span>
-              </h2>
-              <p className="text-lg md:text-xl text-stone-600 dark:text-stone-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                {t.heroDesc}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <button onClick={() => scrollToSection('contact')} className="w-full sm:w-auto px-8 py-4 bg-amber-800 hover:bg-amber-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white rounded-full font-semibold shadow-lg shadow-amber-900/20 transition-all hover:-translate-y-1 text-center">
-                  {t.bookCall}
-                </button>
-                <button 
-                  onClick={() => scrollToSection('catalog')}
-                  className="w-full sm:w-auto px-8 py-4 bg-white dark:bg-stone-900 hover:bg-stone-50 dark:hover:bg-stone-800 text-stone-800 dark:text-stone-200 border border-stone-200 dark:border-stone-700 rounded-full font-semibold shadow-sm transition-all hover:-translate-y-1"
-                >
-                  {t.viewCatalog}
-                </button>
-              </div>
-            </div>
-          </ScrollReveal>
-        </header>
+        {/* --- MAIN PAGE VIEW --- */}
+        {currentPage === 'home' && (
+          <>
+            {/* Hero Section */}
+            <header className="relative pt-36 pb-28 px-6 overflow-hidden">
+              <div 
+                className="absolute inset-0 z-0 bg-cover bg-center filter blur-[6px] opacity-25 dark:opacity-15 scale-105 pointer-events-none"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/80 via-transparent to-[#FAF8F5] dark:from-[#1A1614]/80 dark:via-transparent dark:to-[#1A1614] pointer-events-none z-0"></div>
 
-        {/* About Vastu Section */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-stone-200 dark:border-stone-800/50">
-          <ScrollReveal delay={100} className="text-center max-w-3xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold text-stone-900 dark:text-stone-100 mb-6">
-              {t.aboutTitle1} <span className="text-amber-700 dark:text-amber-500">{t.aboutTitle2}</span>
-            </h3>
-            <p className="text-lg text-stone-600 dark:text-stone-400 leading-relaxed mb-8">
-              {t.aboutDesc}
-            </p>
-            <div className="w-24 h-1 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
-          </ScrollReveal>
-        </section>
-
-        {/* Services Section */}
-        <section className="pb-24 px-6 max-w-7xl mx-auto">
-          <ScrollReveal delay={100} className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-4">{t.expertise}</h3>
-            <div className="w-24 h-1 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
-          </ScrollReveal>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ScrollReveal key={service.id} delay={(index + 1) * 150} className="h-full">
-                <div className="bg-white dark:bg-[#241F1C] p-8 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-xl hover:border-amber-200 dark:hover:border-amber-900/50 transition-all duration-300 group h-full">
-                  <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300">
-                    <svg className="w-7 h-7 text-amber-800 dark:text-amber-500 group-hover:text-white dark:group-hover:text-stone-900 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={service.icon} />
-                    </svg>
-                  </div>
-                  <h4 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-3">{service.title[lang]}</h4>
-                  <p className="text-stone-600 dark:text-stone-400 leading-relaxed">{service.description[lang]}</p>
+              <ScrollReveal delay={0} className="relative z-10">
+                <div className="max-w-4xl mx-auto text-center">
+                  <span className="inline-block py-1.5 px-4 rounded-full bg-amber-100 dark:bg-stone-800/90 border border-amber-200 dark:border-stone-700 text-amber-900 dark:text-amber-400 text-xs font-bold tracking-widest mb-6 shadow-sm">
+                    {t.heroTag}
+                  </span>
+                  <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
+                    {t.heroTitle1} <br className="hidden md:block"/>
+                    <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 via-amber-800 to-orange-800 dark:from-amber-400 dark:to-orange-500">
+                      {t.heroTitle2}
+                    </span>
+                  </h2>
+                  <p className="text-lg md:text-xl text-stone-600 dark:text-stone-300 mb-6 max-w-2xl mx-auto leading-relaxed font-normal">
+                    {t.heroDesc}
+                  </p>
                 </div>
               </ScrollReveal>
-            ))}
-          </div>
-        </section>
+            </header>
 
-        {/* Catalog Section with Custom 4-4-2 Grid Layout and Center Alignment */}
-        <section id="catalog" className="py-24 px-6 bg-stone-100/50 dark:bg-[#151211] border-t border-stone-200 dark:border-stone-800/50">
-          <div className="max-w-7xl mx-auto">
-            <ScrollReveal delay={100} className="mb-12">
-              <h3 className="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-4">{t.catalogTitle}</h3>
-              <p className="text-stone-600 dark:text-stone-400">{t.catalogDesc}</p>
-            </ScrollReveal>
-            
-            {/* Grid configured to handle 4 columns on large screens, with items 9 and 10 placed in columns 2 and 3 to center them */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {products.map((product, index) => {
-                // For the last 2 items (indices 8 and 9), apply grid positioning classes on large screens to create the centered 2-item final row: . .
-                let customLayoutClass = "";
-                if (index === 8) {
-                  // 9th item starts at column 2 on desktop
-                  customLayoutClass = "lg:col-start-2";
-                } else if (index === 9) {
-                  // 10th item starts at column 3 on desktop
-                  customLayoutClass = "lg:col-start-3";
-                }
+            {/* About Vastu Section */}
+            <section className="py-24 px-6 bg-gradient-to-b from-amber-900/10 via-amber-900/5 to-transparent dark:from-amber-950/30 dark:via-amber-950/10 dark:to-transparent border-y border-amber-200/50 dark:border-amber-900/30">
+              <ScrollReveal delay={100} className="text-center max-w-3xl mx-auto">
+                <h3 className="text-3xl md:text-4xl font-black text-stone-900 dark:text-stone-100 mb-6">
+                  {t.aboutTitle1} <span className="text-amber-700 dark:text-amber-500">{t.aboutTitle2}</span>
+                </h3>
+                <p className="text-lg text-stone-700 dark:text-stone-300 leading-relaxed mb-8 font-normal">
+                  {t.aboutDesc}
+                </p>
+                <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+              </ScrollReveal>
+            </section>
 
-                return (
-                  <ScrollReveal key={product.id} delay={(index % 4) * 100} className={`h-full ${customLayoutClass}`}>
-                    <div className="bg-white dark:bg-[#241F1C] rounded-2xl overflow-hidden shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group h-full text-center items-center">
-                      <div className="h-48 w-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center relative overflow-hidden">
-                         <div className="w-24 h-24 bg-white/20 dark:bg-black/20 rounded-full blur-xl absolute -top-4 -left-4"></div>
-                         <div className="w-32 h-32 bg-amber-900/10 dark:bg-amber-500/10 rounded-full blur-xl absolute -bottom-8 -right-8"></div>
-                         <span className="text-stone-500 dark:text-stone-500 font-semibold tracking-widest uppercase text-sm z-10">
-                           {t.brand}
-                         </span>
+            {/* Services Offered Section */}
+            <section className="py-24 px-6 max-w-7xl mx-auto">
+              <ScrollReveal delay={100} className="text-center mb-16">
+                <h3 className="text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.servicesTitle}</h3>
+                <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+              </ScrollReveal>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {/* Numerology Card */}
+                <ScrollReveal delay={150} className="h-full">
+                  <div 
+                    onClick={() => { setSelectedCategory('numerology'); setCurrentPage('catalog'); }}
+                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                  >
+                    <div>
+                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">01</span>
                       </div>
-                      
-                      <div className="p-6 flex-grow flex flex-col justify-between w-full items-center text-center">
-                        <div>
-                          <span className="inline-block px-2 py-1 bg-amber-50 dark:bg-stone-800 text-amber-800 dark:text-amber-500 text-xs font-bold uppercase tracking-wider rounded-md mb-3">
-                            {product.category[lang]}
-                          </span>
-                          <h4 className="text-lg font-bold text-stone-800 dark:text-stone-200 leading-tight mb-2 group-hover:text-amber-800 dark:group-hover:text-amber-400 transition-colors">
-                            {product.name[lang]}
-                          </h4>
-                        </div>
-                        <div className="mt-6 flex items-center justify-center gap-6 border-t border-stone-100 dark:border-stone-800 pt-4 w-full">
-                          <span className="text-2xl font-black text-stone-900 dark:text-stone-100">
-                            ₹{product.price.toLocaleString('en-IN')}
-                          </span>
-                          <a 
-                            href={`https://wa.me/919836345800?text=I'm%20interested%20in%20${encodeURIComponent(product.name.en)}`}
-                            target="_blank" rel="noopener noreferrer"
-                            className="w-10 h-10 rounded-full bg-stone-100 dark:bg-stone-800 text-[#25D366] flex items-center justify-center hover:bg-[#25D366] hover:text-white hover:shadow-md transition-all active:scale-95"
-                            title="Message on WhatsApp"
-                          >
-                             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-                          </a>
-                        </div>
+                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                        {lang === 'hi' ? 'अंक ज्योतिष' : 'Numerology'}
+                      </h4>
+                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                        {lang === 'hi' ? 'नाम सुधार, जन्मतिथि विश्लेषण और जीवन परिवर्तन करने वाले संख्यात्मक उपाय।' : 'Name correction, date of birth analysis, and life-transforming numerical remedies.'}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-amber-700 dark:text-amber-400 font-bold text-sm group-hover:translate-x-1 transition-transform">
+                      View Pricing & Catalog →
+                    </span>
+                  </div>
+                </ScrollReveal>
+
+                {/* Vastu Consultation Card */}
+                <ScrollReveal delay={300} className="h-full">
+                  <div 
+                    onClick={() => { setSelectedCategory('vastu'); setCurrentPage('catalog'); }}
+                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                  >
+                    <div>
+                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">02</span>
+                      </div>
+                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                        {lang === 'hi' ? 'वास्तु परामर्श' : 'Vastu Consultation'}
+                      </h4>
+                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                        {lang === 'hi' ? 'आवासीय, व्यावसायिक और फैक्ट्री वास्तु साइट विजिट और ऑनलाइन समीक्षा।' : 'Residential, commercial, and factory Vastu site visits and remote blueprint audits.'}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-amber-700 dark:text-amber-400 font-bold text-sm group-hover:translate-x-1 transition-transform">
+                      View Pricing & Catalog →
+                    </span>
+                  </div>
+                </ScrollReveal>
+
+                {/* Healing Card */}
+                <ScrollReveal delay={450} className="h-full">
+                  <div 
+                    onClick={() => { setSelectedCategory('healing'); setCurrentPage('catalog'); }}
+                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                  >
+                    <div>
+                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">03</span>
+                      </div>
+                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                        {lang === 'hi' ? 'हीलिंग सेवाएँ' : 'Healing Services'}
+                      </h4>
+                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                        {lang === 'hi' ? 'रेकी और एंजेलिक हीलिंग सत्र आपके शरीर और ऊर्जा क्षेत्र को शुद्ध करने के लिए।' : 'Reiki and angelic healing sessions designed to cleanse your energy field and aura.'}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-amber-700 dark:text-amber-400 font-bold text-sm group-hover:translate-x-1 transition-transform">
+                      View Pricing & Catalog →
+                    </span>
+                  </div>
+                </ScrollReveal>
+              </div>
+            </section>
+
+            {/* Testimonials Section with Blurred Exterior House Background */}
+            <section className="relative py-24 px-6 overflow-hidden border-t border-stone-200 dark:border-stone-800/50">
+              <div 
+                className="absolute inset-0 z-0 bg-cover bg-center filter blur-[8px] opacity-15 dark:opacity-10 scale-105 pointer-events-none"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop')` }}
+              ></div>
+              <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/90 via-[#FAF8F5]/60 to-[#FAF8F5]/90 dark:from-[#1A1614]/90 dark:via-[#1A1614]/60 dark:to-[#1A1614]/90 pointer-events-none z-0"></div>
+
+              <div className="relative z-10 max-w-7xl mx-auto">
+                <ScrollReveal delay={100} className="text-center mb-16">
+                  <h3 className="text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.testimonialsTitle}</h3>
+                  <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+                </ScrollReveal>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {reviews.map((review, index) => (
+                    <ScrollReveal key={review.id} delay={(index + 1) * 150}>
+                      <div className="bg-white/90 dark:bg-[#241F1C]/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 relative mt-8 h-full flex flex-col">
+                        <img 
+                          src={review.image} 
+                          alt={review.name} 
+                          className="w-16 h-16 rounded-full border-4 border-white dark:border-[#241F1C] object-cover absolute -top-8 left-8 shadow-md"
+                        />
+                        <svg className="w-8 h-8 text-amber-200 dark:text-stone-700 mb-4 mt-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p className="text-stone-600 dark:text-stone-300 italic mb-6 flex-grow font-normal">"{review.text[lang]}"</p>
+                        <h5 className="font-bold text-stone-900 dark:text-stone-200">{review.name}</h5>
+                      </div>
+                    </ScrollReveal>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            {/* Lead Capture Form Section */}
+            <section id="contact" className="py-24 px-6 bg-amber-50/50 dark:bg-[#151211] border-t border-stone-200 dark:border-stone-800/50">
+              <div className="max-w-4xl mx-auto bg-white dark:bg-[#241F1C] rounded-3xl shadow-2xl overflow-hidden border border-stone-100 dark:border-stone-800 flex flex-col md:flex-row">
+                
+                {/* Left Info Column */}
+                <div className="bg-amber-800 dark:bg-[#110e0c] text-white p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-amber-700 dark:bg-stone-800 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
+                  <div>
+                    <h3 className="text-3xl font-black mb-4 relative z-10">{t.contactTitle}</h3>
+                    <p className="text-amber-100 dark:text-stone-300 mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
+                    <div className="space-y-4 relative z-10 text-sm">
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98765 43210</p>
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@sachhetvastu.com</p>
+                    </div>
+                  </div>
+
+                  {/* View Catalog Button inside Contact Card */}
+                  <div className="mt-10 relative z-10">
+                    <button 
+                      onClick={() => setCurrentPage('catalog')}
+                      className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-bold text-sm tracking-wide transition-all text-center flex items-center justify-center gap-2 shadow-sm"
+                    >
+                      <span>📂 {t.viewCatalog}</span>
+                    </button>
+                  </div>
+                </div>
+
+                {/* Right Form Column */}
+                <div className="p-10 md:w-3/5 flex flex-col justify-center">
+                  <form onSubmit={handleFormSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formName}</label>
+                        <input type="text" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formPhone}</label>
+                        <input type="tel" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
                       </div>
                     </div>
-                  </ScrollReveal>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-24 px-6 max-w-7xl mx-auto border-t border-stone-200 dark:border-stone-800/50">
-          <ScrollReveal delay={100} className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-stone-900 dark:text-stone-100 mb-4">{t.testimonialsTitle}</h3>
-            <div className="w-24 h-1 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {reviews.map((review, index) => (
-              <ScrollReveal key={review.id} delay={(index + 1) * 150}>
-                <div className="bg-white dark:bg-[#241F1C] p-8 rounded-2xl shadow-sm border border-stone-100 dark:border-stone-800 relative mt-8 h-full flex flex-col">
-                  <img 
-                    src={review.image} 
-                    alt={review.name} 
-                    className="w-16 h-16 rounded-full border-4 border-white dark:border-[#241F1C] object-cover absolute -top-8 left-8 shadow-md"
-                  />
-                  <svg className="w-8 h-8 text-amber-200 dark:text-stone-700 mb-4 mt-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                  <p className="text-stone-600 dark:text-stone-400 italic mb-6 flex-grow">"{review.text[lang]}"</p>
-                  <h5 className="font-bold text-stone-900 dark:text-stone-200">{review.name}</h5>
+                    <div>
+                      <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formEmail}</label>
+                      <input type="email" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formPropType}</label>
+                      <select className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm">
+                        <option>{t.formResidential}</option>
+                        <option>{t.formCommercial}</option>
+                      </select>
+                    </div>
+                    <button type="submit" className="w-full bg-amber-800 hover:bg-amber-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm">
+                      {t.formSubmit}
+                    </button>
+                  </form>
                 </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
+              </div>
+            </section>
+          </>
+        )}
 
-        {/* Lead Capture Form Section */}
-        <section id="contact" className="py-24 px-6 bg-amber-50 dark:bg-[#1A1614] border-t border-stone-200 dark:border-stone-800/50">
-          <div className="max-w-4xl mx-auto bg-white dark:bg-[#241F1C] rounded-3xl shadow-xl overflow-hidden border border-stone-100 dark:border-stone-800 flex flex-col md:flex-row">
+        {/* --- CATALOG PAGE VIEW --- */}
+        {currentPage === 'catalog' && (
+          <div className="max-w-7xl mx-auto px-6 py-12">
             
-            <div className="bg-amber-800 dark:bg-[#151211] text-white p-10 md:w-2/5 flex flex-col justify-center relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-amber-700 dark:bg-stone-800 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
-              <h3 className="text-3xl font-bold mb-4 relative z-10">{t.contactTitle}</h3>
-              <p className="text-amber-100 dark:text-stone-400 mb-8 relative z-10 leading-relaxed">{t.contactDesc}</p>
-              <div className="space-y-4 relative z-10">
-                <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 9836345800</p>
-                <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> sachhetvastu@gmail.com</p>
+            {/* Back to Home & Header */}
+            <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div>
+                <button 
+                  onClick={() => setCurrentPage('home')}
+                  className="text-amber-700 dark:text-amber-400 font-bold text-sm mb-3 inline-block hover:underline"
+                >
+                  {t.backToHome}
+                </button>
+                <h2 className="text-4xl md:text-5xl font-black text-stone-900 dark:text-stone-100">
+                  {t.navCatalog}
+                </h2>
+              </div>
+
+              {/* Search Bar */}
+              <div className="w-full md:w-80 relative">
+                <input 
+                  type="text" 
+                  placeholder={t.searchPlaceholder} 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-3 pl-11 rounded-2xl bg-white dark:bg-[#241F1C] border border-stone-200 dark:border-stone-800 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 shadow-sm text-sm"
+                />
+                <svg className="w-5 h-5 text-stone-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
             </div>
 
-            <div className="p-10 md:w-3/5">
-              <form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{t.formName}</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-lg bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow" />
+            {/* Layout Grid: Side Navigation & Catalog Items */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
+              
+              {/* Side Navigation Categories */}
+              <div className="bg-white dark:bg-[#241F1C] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm lg:sticky lg:top-28">
+                <h3 className="text-xs font-extrabold uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-4">Categories</h3>
+                <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
+                  <button 
+                    onClick={() => setSelectedCategory('all')} 
+                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'all' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                  >
+                    ✦ {t.allCategories}
+                  </button>
+                  <button 
+                    onClick={() => setSelectedCategory('numerology')} 
+                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'numerology' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                  >
+                    ◈ {t.numerology}
+                  </button>
+                  <button 
+                    onClick={() => setSelectedCategory('vastu')} 
+                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'vastu' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                  >
+                    ❖ {t.vastu}
+                  </button>
+                  <button 
+                    onClick={() => setSelectedCategory('healing')} 
+                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'healing' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                  >
+                    ✧ {t.healing}
+                  </button>
+                </div>
+              </div>
+
+              {/* Main Catalog Cards Grid */}
+              <div className="lg:col-span-3">
+                {filteredProducts.length === 0 ? (
+                  <div className="text-center py-20 bg-white dark:bg-[#241F1C] rounded-3xl border border-stone-200 dark:border-stone-800">
+                    <p className="text-stone-500 dark:text-stone-400 font-medium">No services found matching your search.</p>
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{t.formPhone}</label>
-                    <input type="tel" required className="w-full px-4 py-3 rounded-lg bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow" />
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {filteredProducts.map((product) => (
+                      <div 
+                        key={product.id} 
+                        className="bg-white dark:bg-[#241F1C] rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
+                      >
+                        {/* Contextual Image Banner */}
+                        <div className="h-44 w-full overflow-hidden bg-stone-100 dark:bg-stone-800 relative">
+                          <img 
+                            src={product.image} 
+                            alt={product.name.en} 
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                          <span className="absolute bottom-3 left-4 px-2.5 py-1 bg-black/50 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-md">
+                            {product.categoryKey}
+                          </span>
+                        </div>
+
+                        <div className="p-7 flex-grow flex flex-col justify-between">
+                          <div>
+                            <h4 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-2 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                              {product.name[lang]}
+                            </h4>
+                            <p className="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6 font-normal">
+                              {product.desc[lang]}
+                            </p>
+                          </div>
+                          <div className="flex items-center justify-between border-t border-stone-100 dark:border-stone-800 pt-4">
+                            <span className="text-2xl font-black text-stone-900 dark:text-stone-100">
+                              ₹{product.price.toLocaleString('en-IN')}
+                            </span>
+                            {/* WhatsApp Logo Button */}
+                            <a 
+                              href={`https://wa.me/919876543210?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
+                              target="_blank" rel="noopener noreferrer"
+                              className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
+                              title="Book via WhatsApp"
+                            >
+                              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+                              </svg>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{t.formEmail}</label>
-                  <input type="email" required className="w-full px-4 py-3 rounded-lg bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow" />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-stone-700 dark:text-stone-300 mb-2">{t.formPropType}</label>
-                  <select className="w-full px-4 py-3 rounded-lg bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow">
-                    <option>{t.formResidential}</option>
-                    <option>{t.formCommercial}</option>
-                  </select>
-                </div>
-                <button type="submit" className="w-full bg-amber-800 hover:bg-amber-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white font-bold py-4 rounded-lg shadow-md transition-colors">
-                  {t.formSubmit}
-                </button>
-              </form>
+                )}
+              </div>
+
             </div>
           </div>
-        </section>
+        )}
 
-        {/* Footer */}
-        <footer className="bg-stone-900 dark:bg-black text-stone-400 dark:text-stone-500 py-12 px-6">
+        {/* Compact Footer with Brand Logo */}
+        <footer className="bg-stone-900 dark:bg-black text-stone-400 dark:text-stone-500 py-8 px-6 mt-20 border-t border-stone-800">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-md bg-amber-800 dark:bg-amber-700 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">SV</span>
-              </div>
-              <span className="font-semibold text-stone-300">{t.brand}</span>
+            {/* Brand Logo Image */}
+            <div className="flex items-center gap-3">
+              <img src="/logo.png" alt="Sachhetvastu Logo" className="w-8 h-8 object-contain" />
+              <span className="font-bold text-stone-200 text-base">{t.brand}</span>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* Social Media & WhatsApp Links */}
+            <div className="flex items-center gap-3">
               <a 
-                href="https://instagram.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 text-stone-300 hover:text-white flex items-center justify-center transition-all"
-                title="Instagram"
+                href="https://wa.me/919876543210" 
+                target="_blank" rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
+                title="WhatsApp"
               >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
               </a>
-
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 text-stone-300 hover:text-white flex items-center justify-center transition-all"
-                title="Facebook"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.5 0 9 1.5 9 4.615V8z"/>
-                </svg>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white flex items-center justify-center hover:scale-110 transition-all shadow-md" title="Instagram">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </a>
-
-              <a 
-                href="https://youtube.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-stone-800 hover:bg-amber-700 text-stone-300 hover:text-white flex items-center justify-center transition-all"
-                title="YouTube"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
-                </svg>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#1877F2] text-white flex items-center justify-center hover:scale-110 transition-all shadow-md" title="Facebook">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.5 0 9 1.5 9 4.615V8z"/></svg>
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-[#FF0000] text-white flex items-center justify-center hover:scale-110 transition-all shadow-md" title="YouTube">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
               </a>
             </div>
 
-            <p className="text-sm">&copy; {new Date().getFullYear()} {t.brand}. {t.footerRights}</p>
+            <p className="text-xs font-normal">&copy; {new Date().getFullYear()} {t.brand}. {t.footerRights}</p>
           </div>
         </footer>
+
       </div>
     </div>
   );
