@@ -2,6 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import './index.css';
 
+// --- EmailJS Configuration (v4 Pattern) ---
+const EMAILJS_SERVICE_ID = 'service_8wqlo1l';
+const EMAILJS_TEMPLATE_ID = 'template_cgljsyo';
+const EMAILJS_PUBLIC_KEY = '7EcCv5WYAvoAx4-I-';
+
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
 // --- ScrollReveal Wrapper Component ---
 const ScrollReveal = ({ children, className = "", delay = 0 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -239,24 +246,21 @@ export default function App() {
     }
   };
 
-  // EmailJS Form Submit Handler with your provided keys
+  // EmailJS Form Submit Handler
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    const SERVICE_ID = 'service_8wqlo1l';
-    const TEMPLATE_ID = 'template_cgljsyo';
-    const PUBLIC_KEY = '7EcCv5WYAvoAx4-I-';
-
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
-      .then((result) => {
-          alert(lang === 'hi' 
-            ? "धन्यवाद! आपका अनुरोध प्राप्त हुआ है। हम जल्द ही आपसे संपर्क करेंगे।" 
-            : "Thank you! Your request has been received. We will contact you shortly."
-          );
-          e.target.reset();
-      }, (error) => {
-          console.error('EmailJS Error:', error.text);
-          alert("Something went wrong. Please try contacting us via WhatsApp.");
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current)
+      .then(() => {
+        alert(lang === 'hi' 
+          ? "धन्यवाद! आपका अनुरोध प्राप्त हुआ है। हम जल्द ही आपसे संपर्क करेंगे।" 
+          : "Thank you! Your request has been received. We will contact you shortly."
+        );
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error);
+        alert("Something went wrong. Please try contacting us via WhatsApp.");
       });
   };
 
@@ -529,8 +533,8 @@ export default function App() {
                     <div>
                       <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formPropType}</label>
                       <select name="propertyType" className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm">
-                        <option>{t.formResidential}</option>
-                        <option>{t.formCommercial}</option>
+                        <option value="Residential">{t.formResidential}</option>
+                        <option value="Commercial">{t.formCommercial}</option>
                       </select>
                     </div>
                     <button type="submit" className="w-full bg-amber-800 hover:bg-amber-900 dark:bg-amber-600 dark:hover:bg-amber-500 text-white font-bold py-3.5 rounded-xl shadow-md transition-colors text-sm">
