@@ -59,6 +59,11 @@ const translations = {
     aboutTitle1: "The Science of",
     aboutTitle2: "Vastu & Energy",
     aboutDesc: "Vastu is the ancient Indian science of architecture and design, aimed at creating a harmonious environment. By balancing the five elements of nature—earth, water, fire, air, and space—we can unlock positive energy, bringing prosperity, happiness, and health into your residential and commercial spaces.",
+    aboutUsTitle1: "About",
+    aboutUsTitle2: "Sachhetvastu",
+    aboutUsText1: "Sachhetvastu provides vastu consultations focused on layout planning and energy alignment for homes and workspaces. We highly believe in vastu without demolitions along with modern vastu techniques. The services emphasize dos and don'ts for each corner keeping in mind the elemental balance of all the zones.",
+    aboutUsText2: "The Consultant also shares guidance on maintaining positive energy through various customised remedies for the well being of the clients.",
+    aboutUsText3: "Radhaa Anchal is a notable vastu consultant known for aligning the space as per the clients horoscope and numbers, to remove blockages and bring growth and stability.",
     servicesTitle: "Services Offered",
     testimonialsTitle: "Client Success Stories",
     contactTitle: "Get in Touch",
@@ -91,6 +96,11 @@ const translations = {
     aboutTitle1: "विज्ञान:",
     aboutTitle2: "वास्तु और ऊर्जा",
     aboutDesc: "वास्तु वास्तुकला और डिजाइन का प्राचीन भारतीय विज्ञान है। प्रकृति के पांच तत्वों को संतुलित करके, हम सकारात्मक ऊर्जा को खोलते हैं, जिससे समृद्धि और शांति आती है।",
+    aboutUsTitle1: "हमारे बारे में",
+    aboutUsTitle2: "सचेतवास्तु",
+    aboutUsText1: "सचेतवास्तु घरों और कार्यस्थानों के लिए लेआउट प्लानिंग और ऊर्जा संरेखण पर केंद्रित वास्तु परामर्श प्रदान करता है। हम आधुनिक वास्तु तकनीकों के साथ बिना तोड़-फोड़ के वास्तु में दृढ़ता से विश्वास करते हैं। सेवाएँ सभी क्षेत्रों के तत्वों के संतुलन को ध्यान में रखते हुए प्रत्येक कोने के लिए करने योग्य और न करने योग्य बातों पर जोर देती हैं।",
+    aboutUsText2: "परामर्शदाता ग्राहकों की भलाई के लिए विभिन्न अनुकूलित उपायों के माध्यम से सकारात्मक ऊर्जा बनाए रखने पर मार्गदर्शन भी साझा करते हैं।",
+    aboutUsText3: "राधा आंचल एक उल्लेखनीय वास्तु परामर्शदाता हैं जो बाधाओं को दूर करने और विकास तथा स्थिरता लाने के लिए ग्राहक की कुंडली और अंकों के अनुसार स्थान को संरेखित करने के लिए जानी जाती हैं।",
     servicesTitle: "प्रदान की जाने वाली सेवाएँ",
     testimonialsTitle: "ग्राहकों के अनुभव",
     contactTitle: "हमसे संपर्क करें",
@@ -112,7 +122,7 @@ const translations = {
   }
 };
 
-// --- Updated Notebook Pricing & Images ---
+// --- Catalog Items ---
 const catalogItems = [
   // Numerology
   { 
@@ -187,7 +197,7 @@ const catalogItems = [
   },
   { 
     id: 12, categoryKey: "healing", price: 11000, 
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop", // Replaced with serene spiritual meditation image
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop",
     name: { en: "Angelic Healing (11 Days - Deep Immersion)", hi: "एंजेलिक हीलिंग (11 दिन - गहन सत्र)" }, 
     desc: { en: "Extended 11-day intensive spiritual rejuvenation program.", hi: "विस्तृत 11-दिवसीय गहन आध्यात्मिक कायाकल्प कार्यक्रम।" } 
   }
@@ -221,6 +231,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Form reference for EmailJS
   const formRef = useRef();
@@ -234,6 +245,7 @@ export default function App() {
   }, [isDarkMode]);
 
   const scrollToSection = (id) => {
+    setIsMobileMenuOpen(false);
     if (currentPage !== 'home') {
       setCurrentPage('home');
       setTimeout(() => {
@@ -277,33 +289,33 @@ export default function App() {
         
         {/* Navigation */}
         <nav className="sticky top-0 z-50 transition-all duration-300 bg-[#FAF8F5]/85 dark:bg-[#1A1614]/85 backdrop-blur-md border-b border-stone-200 dark:border-stone-800">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
             
             {/* Logo / Brand Image */}
-            <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
-              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Sachhetvastu Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
-              <h1 className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-400">
+            <div className="flex items-center gap-2 sm:gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Sachhetvastu Logo" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-sm" />
+              <h1 className="text-lg sm:text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-400">
                 {t.brand}
               </h1>
             </div>
 
-            {/* Nav Links */}
+            {/* Desktop Nav Links */}
             <div className="hidden md:flex items-center gap-6 font-medium text-sm">
-              <button onClick={() => setCurrentPage('home')} className={`hover:text-amber-700 transition-colors ${currentPage === 'home' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
+              <button onClick={() => { setCurrentPage('home'); setIsMobileMenuOpen(false); }} className={`hover:text-amber-700 transition-colors ${currentPage === 'home' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
                 {t.navHome}
               </button>
-              <button onClick={() => setCurrentPage('catalog')} className={`hover:text-amber-700 transition-colors ${currentPage === 'catalog' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
+              <button onClick={() => { setCurrentPage('catalog'); setIsMobileMenuOpen(false); }} className={`hover:text-amber-700 transition-colors ${currentPage === 'catalog' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}>
                 {t.navCatalog}
               </button>
             </div>
             
             {/* Controls */}
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               
               {/* Language Toggle */}
               <button 
                 onClick={() => setLang(lang === 'en' ? 'hi' : 'en')}
-                className="px-3 py-1.5 rounded-full text-xs font-bold bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-stone-700 transition-colors tracking-widest uppercase shadow-sm"
+                className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs font-bold bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-amber-400 hover:bg-amber-100 dark:hover:bg-stone-700 transition-colors tracking-widest uppercase shadow-sm"
               >
                 {lang === 'en' ? 'HI' : 'EN'}
               </button>
@@ -315,28 +327,68 @@ export default function App() {
                 title="Toggle Theme"
               >
                 {isDarkMode ? (
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                 ) : (
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
                 )}
               </button>
 
-              {/* Header Book Call CTA */}
+              {/* Header Book Call CTA (Desktop) */}
               <button 
                 onClick={() => scrollToSection('contact')}
                 className="hidden sm:flex items-center gap-2 bg-gradient-to-r from-amber-700 to-amber-900 hover:from-amber-800 hover:to-amber-950 text-white px-5 py-2 rounded-full shadow-md transition-all hover:shadow-lg hover:-translate-y-0.5 text-sm font-semibold"
               >
                 {t.bookCall}
               </button>
+
+              {/* Mobile Menu Button */}
+              <button 
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="md:hidden p-2 rounded-xl bg-stone-200 dark:bg-stone-800 text-stone-700 dark:text-stone-300"
+                aria-label="Toggle Menu"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isMobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+
             </div>
           </div>
+
+          {/* Mobile Dropdown Menu */}
+          {isMobileMenuOpen && (
+            <div className="md:hidden bg-[#FAF8F5] dark:bg-[#1A1614] border-b border-stone-200 dark:border-stone-800 px-6 py-5 space-y-4 shadow-xl">
+              <button 
+                onClick={() => { setCurrentPage('home'); setIsMobileMenuOpen(false); }} 
+                className={`block w-full text-left font-medium py-2 ${currentPage === 'home' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}
+              >
+                {t.navHome}
+              </button>
+              <button 
+                onClick={() => { setCurrentPage('catalog'); setIsMobileMenuOpen(false); }} 
+                className={`block w-full text-left font-medium py-2 ${currentPage === 'catalog' ? 'text-amber-700 dark:text-amber-400 font-bold' : ''}`}
+              >
+                {t.navCatalog}
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="w-full bg-gradient-to-r from-amber-700 to-amber-900 text-white py-2.5 rounded-xl font-semibold text-sm shadow-md text-center mt-2"
+              >
+                {t.bookCall}
+              </button>
+            </div>
+          )}
         </nav>
 
         {/* --- MAIN PAGE VIEW --- */}
         {currentPage === 'home' && (
           <>
             {/* Hero Section */}
-            <header className="relative pt-36 pb-28 px-6 overflow-hidden">
+            <header className="relative pt-20 sm:pt-36 pb-20 sm:pb-28 px-4 sm:px-6 overflow-hidden">
               <div 
                 className="absolute inset-0 z-0 bg-cover bg-center filter blur-[6px] opacity-25 dark:opacity-15 scale-105 pointer-events-none"
                 style={{ backgroundImage: `url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1600&auto=format&fit=crop')` }}
@@ -345,16 +397,16 @@ export default function App() {
 
               <ScrollReveal delay={0} className="relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
-                  <span className="inline-block py-1.5 px-4 rounded-full bg-amber-100 dark:bg-stone-800/90 border border-amber-200 dark:border-stone-700 text-amber-900 dark:text-amber-400 text-xs font-bold tracking-widest mb-6 shadow-sm">
+                  <span className="inline-block py-1.5 px-4 rounded-full bg-amber-100 dark:bg-stone-800/90 border border-amber-200 dark:border-stone-700 text-amber-900 dark:text-amber-400 text-xs font-bold tracking-widest mb-4 sm:mb-6 shadow-sm">
                     {t.heroTag}
                   </span>
-                  <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
+                  <h2 className="text-3xl sm:text-5xl md:text-7xl font-black mb-4 sm:mb-6 tracking-tight text-stone-900 dark:text-stone-100 leading-tight">
                     {t.heroTitle1} <br className="hidden md:block"/>
                     <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-700 via-amber-800 to-orange-800 dark:from-amber-400 dark:to-orange-500">
                       {t.heroTitle2}
                     </span>
                   </h2>
-                  <p className="text-lg md:text-xl text-stone-600 dark:text-stone-300 mb-6 max-w-2xl mx-auto leading-relaxed font-normal">
+                  <p className="text-base sm:text-lg md:text-xl text-stone-600 dark:text-stone-300 mb-6 max-w-2xl mx-auto leading-relaxed font-normal px-2">
                     {t.heroDesc}
                   </p>
                 </div>
@@ -362,40 +414,95 @@ export default function App() {
             </header>
 
             {/* About Vastu Section */}
-            <section className="py-24 px-6 bg-gradient-to-b from-amber-900/10 via-amber-900/5 to-transparent dark:from-amber-950/30 dark:via-amber-950/10 dark:to-transparent border-y border-amber-200/50 dark:border-amber-900/30">
+            <section className="py-16 sm:py-24 px-4 sm:px-6 bg-gradient-to-b from-amber-900/10 via-amber-900/5 to-transparent dark:from-amber-950/30 dark:via-amber-950/10 dark:to-transparent border-y border-amber-200/50 dark:border-amber-900/30">
               <ScrollReveal delay={100} className="text-center max-w-3xl mx-auto">
-                <h3 className="text-3xl md:text-4xl font-black text-stone-900 dark:text-stone-100 mb-6">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 dark:text-stone-100 mb-4 sm:mb-6">
                   {t.aboutTitle1} <span className="text-amber-700 dark:text-amber-500">{t.aboutTitle2}</span>
                 </h3>
-                <p className="text-lg text-stone-700 dark:text-stone-300 leading-relaxed mb-8 font-normal">
+                <p className="text-sm sm:text-base md:text-lg text-stone-700 dark:text-stone-300 leading-relaxed mb-6 sm:mb-8 font-normal">
                   {t.aboutDesc}
                 </p>
-                <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+                <div className="w-20 sm:w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
               </ScrollReveal>
             </section>
 
+            {/* --- About Us Section with Flair Background & Single Box --- */}
+            <section className="relative py-16 sm:py-28 px-4 sm:px-6 max-w-6xl mx-auto overflow-hidden">
+              {/* Background Flair Effects */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-amber-500/10 dark:bg-amber-600/10 rounded-full blur-[100px] sm:blur-[120px] pointer-events-none"></div>
+
+              <ScrollReveal delay={100} className="text-center mb-10 sm:mb-16 relative z-10">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-stone-900 dark:text-stone-100 mb-4">
+                  {t.aboutUsTitle1} <span className="text-amber-700 dark:text-amber-500">{t.aboutUsTitle2}</span>
+                </h3>
+                <div className="w-20 sm:w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+              </ScrollReveal>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center relative z-10">
+                
+                {/* Consultant Local Image Reference */}
+                <ScrollReveal delay={150} className="lg:col-span-5 max-w-xs sm:max-w-sm lg:max-w-none mx-auto w-full">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 dark:border-stone-800/80 aspect-[4/5] bg-stone-200 dark:bg-stone-800 group">
+                    <img 
+                      src={`${import.meta.env.BASE_URL}radha anchal.png`} 
+                      alt="Radhaa Anchal - Vastu Consultant" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent flex flex-col justify-end p-5 sm:p-6 text-white">
+                      <span className="font-bold text-base sm:text-lg">Radhaa Anchal</span>
+                      <span className="text-[11px] sm:text-xs text-amber-300 font-semibold uppercase tracking-wider">Lead Vastu & Numerology Expert</span>
+                    </div>
+                  </div>
+                </ScrollReveal>
+
+                {/* Single Unified Text Box */}
+                <ScrollReveal delay={200} className="lg:col-span-7">
+                  <div className="bg-white/90 dark:bg-[#241F1C]/90 backdrop-blur-xl p-6 sm:p-8 md:p-10 rounded-3xl shadow-xl border border-amber-100 dark:border-stone-800 space-y-4 sm:space-y-6 relative">
+                    <div className="absolute -top-3 -right-3 w-12 h-12 bg-amber-700/10 rounded-full blur-xl pointer-events-none"></div>
+                    
+                    <p className="text-stone-700 dark:text-stone-300 leading-relaxed font-normal text-sm sm:text-base md:text-lg">
+                      {t.aboutUsText1}
+                    </p>
+
+                    <div className="h-px bg-stone-100 dark:bg-stone-800"></div>
+
+                    <p className="text-stone-700 dark:text-stone-300 leading-relaxed font-normal text-sm sm:text-base md:text-lg">
+                      {t.aboutUsText2}
+                    </p>
+
+                    <div className="h-px bg-stone-100 dark:bg-stone-800"></div>
+
+                    <p className="text-amber-900 dark:text-amber-300 font-semibold leading-relaxed text-sm sm:text-base md:text-lg">
+                      {t.aboutUsText3}
+                    </p>
+                  </div>
+                </ScrollReveal>
+
+              </div>
+            </section>
+
             {/* Services Offered Section */}
-            <section className="py-24 px-6 max-w-7xl mx-auto">
-              <ScrollReveal delay={100} className="text-center mb-16">
-                <h3 className="text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.servicesTitle}</h3>
-                <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+            <section className="py-16 sm:py-24 px-4 sm:px-6 max-w-7xl mx-auto bg-stone-100/50 dark:bg-[#1f1a18]/50 rounded-3xl my-8">
+              <ScrollReveal delay={100} className="text-center mb-12 sm:mb-16">
+                <h3 className="text-2xl sm:text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.servicesTitle}</h3>
+                <div className="w-20 sm:w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
               </ScrollReveal>
               
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                 {/* Numerology Card */}
                 <ScrollReveal delay={150} className="h-full">
                   <div 
                     onClick={() => { setSelectedCategory('numerology'); setCurrentPage('catalog'); }}
-                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                    className="bg-white dark:bg-[#241F1C] p-6 sm:p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
                   >
                     <div>
-                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
-                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">01</span>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-lg sm:text-xl">01</span>
                       </div>
-                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                      <h4 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-2 sm:mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                         {lang === 'hi' ? 'अंक ज्योतिष' : 'Numerology'}
                       </h4>
-                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                      <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base leading-relaxed mb-6">
                         {lang === 'hi' ? 'नाम सुधार, जन्मतिथि विश्लेषण और जीवन परिवर्तन करने वाले संख्यात्मक उपाय।' : 'Name correction, date of birth analysis, and life-transforming numerical remedies.'}
                       </p>
                     </div>
@@ -409,16 +516,16 @@ export default function App() {
                 <ScrollReveal delay={300} className="h-full">
                   <div 
                     onClick={() => { setSelectedCategory('vastu'); setCurrentPage('catalog'); }}
-                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                    className="bg-white dark:bg-[#241F1C] p-6 sm:p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
                   >
                     <div>
-                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
-                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">02</span>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-lg sm:text-xl">02</span>
                       </div>
-                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                      <h4 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-2 sm:mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                         {lang === 'hi' ? 'वास्तु परामर्श' : 'Vastu Consultation'}
                       </h4>
-                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                      <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base leading-relaxed mb-6">
                         {lang === 'hi' ? 'आवासीय, व्यावसायिक और फैक्ट्री वास्तु साइट विजिट और ऑनलाइन समीक्षा।' : 'Residential, commercial, and factory Vastu site visits and remote blueprint audits.'}
                       </p>
                     </div>
@@ -432,16 +539,16 @@ export default function App() {
                 <ScrollReveal delay={450} className="h-full">
                   <div 
                     onClick={() => { setSelectedCategory('healing'); setCurrentPage('catalog'); }}
-                    className="bg-white dark:bg-[#241F1C] p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
+                    className="bg-white dark:bg-[#241F1C] p-6 sm:p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 hover:shadow-2xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 group h-full flex flex-col justify-between cursor-pointer"
                   >
                     <div>
-                      <div className="w-14 h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
-                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-xl">03</span>
+                      <div className="w-12 h-12 sm:w-14 sm:h-14 bg-amber-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 group-hover:bg-amber-800 dark:group-hover:bg-amber-600 transition-all duration-300 shadow-sm">
+                        <span className="text-amber-800 dark:text-amber-400 group-hover:text-white font-black text-lg sm:text-xl">03</span>
                       </div>
-                      <h4 className="text-2xl font-bold text-stone-900 dark:text-stone-100 mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                      <h4 className="text-xl sm:text-2xl font-bold text-stone-900 dark:text-stone-100 mb-2 sm:mb-3 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                         {lang === 'hi' ? 'हीलिंग सेवाएँ' : 'Healing Services'}
                       </h4>
-                      <p className="text-stone-600 dark:text-stone-400 leading-relaxed mb-6">
+                      <p className="text-stone-600 dark:text-stone-400 text-sm sm:text-base leading-relaxed mb-6">
                         {lang === 'hi' ? 'रेकी और एंजेलिक हीलिंग सत्र आपके शरीर और ऊर्जा क्षेत्र को शुद्ध करने के लिए।' : 'Reiki and angelic healing sessions designed to cleanse your energy field and aura.'}
                       </p>
                     </div>
@@ -453,8 +560,8 @@ export default function App() {
               </div>
             </section>
 
-            {/* Testimonials Section with Blurred Exterior House Background */}
-            <section className="relative py-24 px-6 overflow-hidden border-t border-stone-200 dark:border-stone-800/50">
+            {/* Testimonials Section */}
+            <section className="relative py-16 sm:py-24 px-4 sm:px-6 overflow-hidden border-t border-stone-200 dark:border-stone-800/50">
               <div 
                 className="absolute inset-0 z-0 bg-cover bg-center filter blur-[8px] opacity-15 dark:opacity-10 scale-105 pointer-events-none"
                 style={{ backgroundImage: `url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=1600&auto=format&fit=crop')` }}
@@ -462,23 +569,23 @@ export default function App() {
               <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/90 via-[#FAF8F5]/60 to-[#FAF8F5]/90 dark:from-[#1A1614]/90 dark:via-[#1A1614]/60 dark:to-[#1A1614]/90 pointer-events-none z-0"></div>
 
               <div className="relative z-10 max-w-7xl mx-auto">
-                <ScrollReveal delay={100} className="text-center mb-16">
-                  <h3 className="text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.testimonialsTitle}</h3>
-                  <div className="w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
+                <ScrollReveal delay={100} className="text-center mb-12 sm:mb-16">
+                  <h3 className="text-2xl sm:text-3xl font-black text-stone-900 dark:text-stone-100 mb-4">{t.testimonialsTitle}</h3>
+                  <div className="w-20 sm:w-24 h-1.5 bg-amber-700 dark:bg-amber-500 mx-auto rounded-full"></div>
                 </ScrollReveal>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {reviews.map((review, index) => (
                     <ScrollReveal key={review.id} delay={(index + 1) * 150}>
-                      <div className="bg-white/90 dark:bg-[#241F1C]/90 backdrop-blur-md p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 relative mt-8 h-full flex flex-col">
+                      <div className="bg-white/90 dark:bg-[#241F1C]/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-sm border border-stone-100 dark:border-stone-800 relative mt-8 h-full flex flex-col">
                         <img 
                           src={review.image} 
                           alt={review.name} 
-                          className="w-16 h-16 rounded-full border-4 border-white dark:border-[#241F1C] object-cover absolute -top-8 left-8 shadow-md"
+                          className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-4 border-white dark:border-[#241F1C] object-cover absolute -top-7 sm:-top-8 left-6 sm:left-8 shadow-md"
                         />
-                        <svg className="w-8 h-8 text-amber-200 dark:text-stone-700 mb-4 mt-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
-                        <p className="text-stone-600 dark:text-stone-300 italic mb-6 flex-grow font-normal">"{review.text[lang]}"</p>
-                        <h5 className="font-bold text-stone-900 dark:text-stone-200">{review.name}</h5>
+                        <svg className="w-7 h-7 sm:w-8 sm:h-8 text-amber-200 dark:text-stone-700 mb-3 sm:mb-4 mt-4" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                        <p className="text-stone-600 dark:text-stone-300 text-sm sm:text-base italic mb-6 flex-grow font-normal">"{review.text[lang]}"</p>
+                        <h5 className="font-bold text-sm sm:text-base text-stone-900 dark:text-stone-200">{review.name}</h5>
                       </div>
                     </ScrollReveal>
                   ))}
@@ -487,23 +594,23 @@ export default function App() {
             </section>
 
             {/* Lead Capture Form Section */}
-            <section id="contact" className="py-24 px-6 bg-amber-50/50 dark:bg-[#151211] border-t border-stone-200 dark:border-stone-800/50">
+            <section id="contact" className="py-16 sm:py-24 px-4 sm:px-6 bg-amber-50/50 dark:bg-[#151211] border-t border-stone-200 dark:border-stone-800/50">
               <div className="max-w-4xl mx-auto bg-white dark:bg-[#241F1C] rounded-3xl shadow-2xl overflow-hidden border border-stone-100 dark:border-stone-800 flex flex-col md:flex-row">
                 
-                {/* Left Info Column with updated phone & email */}
-                <div className="bg-amber-800 dark:bg-[#110e0c] text-white p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
+                {/* Left Info Column */}
+                <div className="bg-amber-800 dark:bg-[#110e0c] text-white p-6 sm:p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-amber-700 dark:bg-stone-800 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
                   <div>
-                    <h3 className="text-3xl font-black mb-4 relative z-10">{t.contactTitle}</h3>
-                    <p className="text-amber-100 dark:text-stone-300 mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
-                    <div className="space-y-4 relative z-10 text-sm">
-                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98363 45800</p>
-                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Sachhetvastu@gmail.com</p>
+                    <h3 className="text-2xl sm:text-3xl font-black mb-3 sm:mb-4 relative z-10">{t.contactTitle}</h3>
+                    <p className="text-amber-100 dark:text-stone-300 text-sm sm:text-base mb-6 sm:mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
+                    <div className="space-y-3 sm:space-y-4 relative z-10 text-xs sm:text-sm">
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98363 45800</p>
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Sachhetvastu@gmail.com</p>
                     </div>
                   </div>
 
                   {/* View Catalog Button inside Contact Card */}
-                  <div className="mt-10 relative z-10">
+                  <div className="mt-8 sm:mt-10 relative z-10">
                     <button 
                       onClick={() => setCurrentPage('catalog')}
                       className="w-full py-3 px-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-white font-bold text-sm tracking-wide transition-all text-center flex items-center justify-center gap-2 shadow-sm"
@@ -513,10 +620,10 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right Form Column with ref={formRef} */}
-                <div className="p-10 md:w-3/5 flex flex-col justify-center">
-                  <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-5">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                {/* Right Form Column */}
+                <div className="p-6 sm:p-10 md:w-3/5 flex flex-col justify-center">
+                  <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-4 sm:space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                       <div>
                         <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formName}</label>
                         <input type="text" name="from_name" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
@@ -549,18 +656,18 @@ export default function App() {
 
         {/* --- CATALOG PAGE VIEW --- */}
         {currentPage === 'catalog' && (
-          <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
             
             {/* Back to Home & Header */}
             <div className="mb-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               <div>
                 <button 
                   onClick={() => setCurrentPage('home')}
-                  className="text-amber-700 dark:text-amber-400 font-bold text-sm mb-3 inline-block hover:underline"
+                  className="text-amber-700 dark:text-amber-400 font-bold text-sm mb-2 sm:mb-3 inline-block hover:underline"
                 >
                   {t.backToHome}
                 </button>
-                <h2 className="text-4xl md:text-5xl font-black text-stone-900 dark:text-stone-100">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-stone-900 dark:text-stone-100">
                   {t.navCatalog}
                 </h2>
               </div>
@@ -584,30 +691,30 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
               
               {/* Side Navigation Categories */}
-              <div className="bg-white dark:bg-[#241F1C] p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm lg:sticky lg:top-28">
-                <h3 className="text-xs font-extrabold uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-4">Categories</h3>
-                <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0">
+              <div className="bg-white dark:bg-[#241F1C] p-4 sm:p-6 rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm lg:sticky lg:top-28">
+                <h3 className="text-xs font-extrabold uppercase tracking-widest text-stone-400 dark:text-stone-500 mb-3 sm:mb-4">Categories</h3>
+                <div className="flex flex-row lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none">
                   <button 
                     onClick={() => setSelectedCategory('all')} 
-                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'all' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                    className={`px-4 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'all' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
                   >
                     ✦ {t.allCategories}
                   </button>
                   <button 
                     onClick={() => setSelectedCategory('numerology')} 
-                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'numerology' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                    className={`px-4 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'numerology' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
                   >
                     ◈ {t.numerology}
                   </button>
                   <button 
                     onClick={() => setSelectedCategory('vastu')} 
-                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'vastu' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                    className={`px-4 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'vastu' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
                   >
                     ❖ {t.vastu}
                   </button>
                   <button 
                     onClick={() => setSelectedCategory('healing')} 
-                    className={`px-4 py-3 rounded-xl font-bold text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'healing' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
+                    className={`px-4 py-2.5 sm:py-3 rounded-xl font-bold text-xs sm:text-sm text-left transition-all whitespace-nowrap ${selectedCategory === 'healing' ? 'bg-amber-800 text-white shadow-md' : 'hover:bg-stone-100 dark:hover:bg-stone-800 text-stone-700 dark:text-stone-300'}`}
                   >
                     ✧ {t.healing}
                   </button>
@@ -618,7 +725,7 @@ export default function App() {
               <div className="lg:col-span-3">
                 {filteredProducts.length === 0 ? (
                   <div className="text-center py-20 bg-white dark:bg-[#241F1C] rounded-3xl border border-stone-200 dark:border-stone-800">
-                    <p className="text-stone-500 dark:text-stone-400 font-medium">No services found matching your search.</p>
+                    <p className="text-stone-500 dark:text-stone-400 font-medium text-sm sm:text-base">No services found matching your search.</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -628,39 +735,39 @@ export default function App() {
                         className="bg-white dark:bg-[#241F1C] rounded-3xl border border-stone-200 dark:border-stone-800 shadow-sm hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-900 transition-all duration-300 flex flex-col justify-between overflow-hidden group"
                       >
                         {/* Contextual Image Banner */}
-                        <div className="h-44 w-full overflow-hidden bg-stone-100 dark:bg-stone-800 relative">
+                        <div className="h-40 sm:h-44 w-full overflow-hidden bg-stone-100 dark:bg-stone-800 relative">
                           <img 
                             src={product.image} 
                             alt={product.name.en} 
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                          <span className="absolute bottom-3 left-4 px-2.5 py-1 bg-black/50 backdrop-blur-md text-white text-xs font-semibold uppercase tracking-wider rounded-md">
+                          <span className="absolute bottom-3 left-4 px-2.5 py-1 bg-black/50 backdrop-blur-md text-white text-[10px] sm:text-xs font-semibold uppercase tracking-wider rounded-md">
                             {product.categoryKey}
                           </span>
                         </div>
 
-                        <div className="p-7 flex-grow flex flex-col justify-between">
+                        <div className="p-5 sm:p-7 flex-grow flex flex-col justify-between">
                           <div>
-                            <h4 className="text-xl font-bold text-stone-900 dark:text-stone-100 mb-2 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                            <h4 className="text-lg sm:text-xl font-bold text-stone-900 dark:text-stone-100 mb-2 group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
                               {product.name[lang]}
                             </h4>
-                            <p className="text-stone-600 dark:text-stone-400 text-sm leading-relaxed mb-6 font-normal">
+                            <p className="text-stone-600 dark:text-stone-400 text-xs sm:text-sm leading-relaxed mb-6 font-normal">
                               {product.desc[lang]}
                             </p>
                           </div>
                           <div className="flex items-center justify-between border-t border-stone-100 dark:border-stone-800 pt-4">
-                            <span className="text-2xl font-black text-stone-900 dark:text-stone-100">
+                            <span className="text-xl sm:text-2xl font-black text-stone-900 dark:text-stone-100">
                               ₹{product.price.toLocaleString('en-IN')}
                             </span>
                             {/* WhatsApp Booking Button */}
                             <a 
                               href="https://wa.me/919836345800?text=I'm%20interested%20in%20booking%20a%20consultation"
                               target="_blank" rel="noopener noreferrer"
-                              className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
+                              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
                               title="Book via WhatsApp"
                             >
-                              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
                               </svg>
                             </a>
@@ -676,18 +783,18 @@ export default function App() {
           </div>
         )}
 
-        {/* Compact Footer with Brand Logo */}
-        <footer className="bg-stone-900 dark:bg-black text-stone-400 dark:text-stone-500 py-8 px-6 mt-20 border-t border-stone-800">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Footer */}
+        <footer className="bg-stone-900 dark:bg-black text-stone-400 dark:text-stone-500 py-8 px-4 sm:px-6 mt-16 sm:mt-20 border-t border-stone-800">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             
             {/* Brand Logo Image */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center md:justify-start gap-3">
               <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Sachhetvastu Logo" className="w-8 h-8 object-contain" />
               <span className="font-bold text-stone-200 text-base">{t.brand}</span>
             </div>
 
-            {/* Social Media & WhatsApp Links with updated number */}
-            <div className="flex items-center gap-3">
+            {/* Social Media & WhatsApp Links */}
+            <div className="flex items-center justify-center gap-3">
               <a 
                 href="https://wa.me/919836345800" 
                 target="_blank" rel="noopener noreferrer"
