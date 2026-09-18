@@ -619,7 +619,7 @@ export default function App() {
                             </span>
                             {/* WhatsApp Logo Button */}
                             <a 
-                              href={`https://wa.me/919876543210?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
+                              href={`https://wa.me/9198363458000?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
                               target="_blank" rel="noopener noreferrer"
                               className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
                               title="Book via WhatsApp"
@@ -653,7 +653,7 @@ export default function App() {
             {/* Social Media & WhatsApp Links */}
             <div className="flex items-center gap-3">
               <a 
-                href="https://wa.me/919876543210" 
+                href="https://wa.me/919836345800" 
                 target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
                 title="WhatsApp"
