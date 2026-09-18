@@ -462,7 +462,7 @@ export default function App() {
                     <h3 className="text-3xl font-black mb-4 relative z-10">{t.contactTitle}</h3>
                     <p className="text-amber-100 dark:text-stone-300 mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
                     <div className="space-y-4 relative z-10 text-sm">
-                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98765 43210</p>
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98363 45800</p>
                       <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> sachhetvastu@gmail.com</p>
                     </div>
                   </div>
@@ -620,7 +620,7 @@ export default function App() {
                             </span>
                             {/* WhatsApp Logo Button */}
                             <a 
-                              href={`https://wa.me/9198363458000?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
+                              href={`https://wa.me/919836345800?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
                               target="_blank" rel="noopener noreferrer"
                               className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
                               title="Book via WhatsApp"
@@ -654,7 +654,7 @@ export default function App() {
             {/* Social Media & WhatsApp Links */}
             <div className="flex items-center gap-3">
               <a 
-                href="https://wa.me/9198363458000" 
+                href="https://wa.me/919836345800" 
                 target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
                 title="WhatsApp"
