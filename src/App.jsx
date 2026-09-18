@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './index.css';
 
 // --- ScrollReveal Wrapper Component ---
@@ -104,7 +105,7 @@ const translations = {
   }
 };
 
-// --- Updated Notebook Pricing & Contextual Imagery ---
+// --- Updated Notebook Pricing & Images ---
 const catalogItems = [
   // Numerology
   { 
@@ -115,7 +116,7 @@ const catalogItems = [
   },
   { 
     id: 2, categoryKey: "numerology", price: 3200, 
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop", // Modern car/house aesthetic
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop",
     name: { en: "Vehicle, House & Phone Number Suggestions", hi: "वाहन, मकान और फोन नंबर सुझाव" }, 
     desc: { en: "Aligning everyday digits with your lucky numerology matrix.", hi: "दैनिक अंकों को आपके भाग्यशाली अंक ज्योतिष मैट्रिक्स के साथ संरेखित करना।" } 
   },
@@ -173,22 +174,37 @@ const catalogItems = [
   },
   { 
     id: 11, categoryKey: "healing", price: 5000, 
-    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800&auto=format&fit=crop", // Candles & fragrances aesthetic
+    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800&auto=format&fit=crop",
     name: { en: "Angelic Healing (5 Days)", hi: "एंजेलिक हीलिंग (5 दिन)" }, 
     desc: { en: "Divine light intervention and emotional trauma clearing.", hi: "दिव्य प्रकाश हस्तक्षेप और भावनात्मक आघात सफाई।" } 
   },
   { 
     id: 12, categoryKey: "healing", price: 11000, 
-    image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop", // Replaced with serene spiritual meditation image
     name: { en: "Angelic Healing (11 Days - Deep Immersion)", hi: "एंजेलिक हीलिंग (11 दिन - गहन सत्र)" }, 
     desc: { en: "Extended 11-day intensive spiritual rejuvenation program.", hi: "विस्तृत 11-दिवसीय गहन आध्यात्मिक कायाकल्प कार्यक्रम।" } 
   }
 ];
 
 const reviews = [
-  { id: 1, name: "Aarav Sharma", image: "https://randomuser.me/api/portraits/men/39.jpg", text: { en: "Sachhetvastu completely transformed the energy in our new office. Productivity has noticeably increased!", hi: "सचेतवास्तु ने हमारे नए कार्यालय में ऊर्जा को पूरी तरह से बदल दिया है। उत्पादकता में काफी वृद्धि हुई है!" } },
-  { id: 2, name: "Priya Patel", image: "https://randomuser.me/api/portraits/women/26.jpg", text: { en: "The 1-on-1 consultation was incredibly eye-opening. Simple spatial shifts brought so much peace to our home.", hi: "परामर्श बहुत ही ज्ञानवर्धक था। सरल स्थानिक परिवर्तनों से हमारे घर में बहुत शांति आई।" } },
-  { id: 3, name: "Rohan Desai", image: "https://randomuser.me/api/portraits/men/48.jpg", text: { en: "Highly recommend their Property Analysis Report before buying any real estate. It saved us from a bad investment.", hi: "किसी भी संपत्ति को खरीदने से पहले उनकी रिपोर्ट की अत्यधिक अनुशंसा करता हूं। इसने हमें गलत निवेश से बचाया।" } }
+  { 
+    id: 1, 
+    name: "Aarav Sharma", 
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop", 
+    text: { en: "Sachhetvastu completely transformed the energy in our new office. Productivity has noticeably increased!", hi: "सचेतवास्तु ने हमारे नए कार्यालय में ऊर्जा को पूरी तरह से बदल दिया है। उत्पादकता में काफी वृद्धि हुई है!" } 
+  },
+  { 
+    id: 2, 
+    name: "Priya Patel", 
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300&auto=format&fit=crop", 
+    text: { en: "The 1-on-1 consultation was incredibly eye-opening. Simple spatial shifts brought so much peace to our home.", hi: "परामर्श बहुत ही ज्ञानवर्धक था। सरल स्थानिक परिवर्तनों से हमारे घर में बहुत शांति आई।" } 
+  },
+  { 
+    id: 3, 
+    name: "Rohan Desai", 
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop", 
+    text: { en: "Highly recommend their Property Analysis Report before buying any real estate. It saved us from a bad investment.", hi: "किसी भी संपत्ति को खरीदने से पहले उनकी रिपोर्ट की अत्यधिक अनुशंसा करता हूं। इसने हमें गलत निवेश से बचाया।" } 
+  }
 ];
 
 export default function App() {
@@ -198,6 +214,9 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Form reference for EmailJS
+  const formRef = useRef();
 
   const [isDarkMode, setIsDarkMode] = useState(() => {
     return localStorage.getItem('theme') === 'dark';
@@ -220,13 +239,25 @@ export default function App() {
     }
   };
 
+  // EmailJS Form Submit Handler with your provided keys
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    alert(lang === 'hi' 
-      ? "धन्यवाद! आपका अनुरोध प्राप्त हुआ है। हम जल्द ही आपसे संपर्क करेंगे।" 
-      : "Thank you! Your request has been received. We will contact you shortly."
-    );
-    e.target.reset();
+
+    const SERVICE_ID = 'service_8wqlo1l';
+    const TEMPLATE_ID = 'template_cgljsyo';
+    const PUBLIC_KEY = '7EcCv5WYAvoAx4-I-';
+
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY)
+      .then((result) => {
+          alert(lang === 'hi' 
+            ? "धन्यवाद! आपका अनुरोध प्राप्त हुआ है। हम जल्द ही आपसे संपर्क करेंगे।" 
+            : "Thank you! Your request has been received. We will contact you shortly."
+          );
+          e.target.reset();
+      }, (error) => {
+          console.error('EmailJS Error:', error.text);
+          alert("Something went wrong. Please try contacting us via WhatsApp.");
+      });
   };
 
   const filteredProducts = catalogItems.filter(item => {
@@ -455,7 +486,7 @@ export default function App() {
             <section id="contact" className="py-24 px-6 bg-amber-50/50 dark:bg-[#151211] border-t border-stone-200 dark:border-stone-800/50">
               <div className="max-w-4xl mx-auto bg-white dark:bg-[#241F1C] rounded-3xl shadow-2xl overflow-hidden border border-stone-100 dark:border-stone-800 flex flex-col md:flex-row">
                 
-                {/* Left Info Column */}
+                {/* Left Info Column with updated phone & email */}
                 <div className="bg-amber-800 dark:bg-[#110e0c] text-white p-10 md:w-2/5 flex flex-col justify-between relative overflow-hidden">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-amber-700 dark:bg-stone-800 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
                   <div>
@@ -463,7 +494,7 @@ export default function App() {
                     <p className="text-amber-100 dark:text-stone-300 mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
                     <div className="space-y-4 relative z-10 text-sm">
                       <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98363 45800</p>
-                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> sachhetvastu@gmail.com</p>
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Sachhetvastu@gmail.com</p>
                     </div>
                   </div>
 
@@ -478,26 +509,26 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Right Form Column */}
+                {/* Right Form Column with ref={formRef} */}
                 <div className="p-10 md:w-3/5 flex flex-col justify-center">
-                  <form onSubmit={handleFormSubmit} className="space-y-5">
+                  <form ref={formRef} onSubmit={handleFormSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                       <div>
                         <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formName}</label>
-                        <input type="text" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
+                        <input type="text" name="from_name" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
                       </div>
                       <div>
                         <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formPhone}</label>
-                        <input type="tel" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
+                        <input type="tel" name="phone" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formEmail}</label>
-                      <input type="email" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
+                      <input type="email" name="email" required className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm" />
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-stone-600 dark:text-stone-400 uppercase tracking-wider mb-2">{t.formPropType}</label>
-                      <select className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm">
+                      <select name="propertyType" className="w-full px-4 py-3 rounded-xl bg-stone-50 dark:bg-[#1A1614] border border-stone-200 dark:border-stone-700 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:text-stone-200 transition-shadow text-sm">
                         <option>{t.formResidential}</option>
                         <option>{t.formCommercial}</option>
                       </select>
@@ -618,9 +649,9 @@ export default function App() {
                             <span className="text-2xl font-black text-stone-900 dark:text-stone-100">
                               ₹{product.price.toLocaleString('en-IN')}
                             </span>
-                            {/* WhatsApp Logo Button */}
+                            {/* WhatsApp Booking Button */}
                             <a 
-                              href={`https://wa.me/919836345800?text=I'm%20interested%20in%20booking%20${encodeURIComponent(product.name.en)}`}
+                              href="https://wa.me/919836345800?text=I'm%20interested%20in%20booking%20a%20consultation"
                               target="_blank" rel="noopener noreferrer"
                               className="w-11 h-11 rounded-full bg-[#25D366] hover:bg-[#1DA851] text-white flex items-center justify-center shadow-md transition-all hover:scale-110 active:scale-95"
                               title="Book via WhatsApp"
@@ -651,7 +682,7 @@ export default function App() {
               <span className="font-bold text-stone-200 text-base">{t.brand}</span>
             </div>
 
-            {/* Social Media & WhatsApp Links */}
+            {/* Social Media & WhatsApp Links with updated number */}
             <div className="flex items-center gap-3">
               <a 
                 href="https://wa.me/919836345800" 
