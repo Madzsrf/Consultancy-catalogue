@@ -104,6 +104,7 @@ const translations = {
   }
 };
 
+// --- Updated Notebook Pricing & Contextual Imagery ---
 const catalogItems = [
   // Numerology
   { 
@@ -114,7 +115,7 @@ const catalogItems = [
   },
   { 
     id: 2, categoryKey: "numerology", price: 3200, 
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=800&auto=format&fit=crop", // Modern car/house aesthetic
     name: { en: "Vehicle, House & Phone Number Suggestions", hi: "वाहन, मकान और फोन नंबर सुझाव" }, 
     desc: { en: "Aligning everyday digits with your lucky numerology matrix.", hi: "दैनिक अंकों को आपके भाग्यशाली अंक ज्योतिष मैट्रिक्स के साथ संरेखित करना।" } 
   },
@@ -172,7 +173,7 @@ const catalogItems = [
   },
   { 
     id: 11, categoryKey: "healing", price: 5000, 
-    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=800&auto=format&fit=crop", // Candles & fragrances aesthetic
     name: { en: "Angelic Healing (5 Days)", hi: "एंजेलिक हीलिंग (5 दिन)" }, 
     desc: { en: "Divine light intervention and emotional trauma clearing.", hi: "दिव्य प्रकाश हस्तक्षेप और भावनात्मक आघात सफाई।" } 
   },
@@ -185,9 +186,9 @@ const catalogItems = [
 ];
 
 const reviews = [
-  { id: 1, name: "Aarav Sharma", image: "https://randomuser.me/api/portraits/men/43.jpg", text: { en: "Sachhetvastu completely transformed the energy in our new office. Productivity has noticeably increased!", hi: "सचेतवास्तु ने हमारे नए कार्यालय में ऊर्जा को पूरी तरह से बदल दिया है। उत्पादकता में काफी वृद्धि हुई है!" } },
-  { id: 2, name: "Priya Patel", image: "https://randomuser.me/api/portraits/women/44.jpg", text: { en: "The 1-on-1 consultation was incredibly eye-opening. Simple spatial shifts brought so much peace to our home.", hi: "परामर्श बहुत ही ज्ञानवर्धक था। सरल स्थानिक परिवर्तनों से हमारे घर में बहुत शांति आई।" } },
-  { id: 3, name: "Rohan Desai", image: "https://randomuser.me/api/portraits/men/46.jpg", text: { en: "Highly recommend their Property Analysis Report before buying any real estate. It saved us from a bad investment.", hi: "किसी भी संपत्ति को खरीदने से पहले उनकी रिपोर्ट की अत्यधिक अनुशंसा करता हूं। इसने हमें गलत निवेश से बचाया।" } }
+  { id: 1, name: "Aarav Sharma", image: "https://randomuser.me/api/portraits/men/39.jpg", text: { en: "Sachhetvastu completely transformed the energy in our new office. Productivity has noticeably increased!", hi: "सचेतवास्तु ने हमारे नए कार्यालय में ऊर्जा को पूरी तरह से बदल दिया है। उत्पादकता में काफी वृद्धि हुई है!" } },
+  { id: 2, name: "Priya Patel", image: "https://randomuser.me/api/portraits/women/26.jpg", text: { en: "The 1-on-1 consultation was incredibly eye-opening. Simple spatial shifts brought so much peace to our home.", hi: "परामर्श बहुत ही ज्ञानवर्धक था। सरल स्थानिक परिवर्तनों से हमारे घर में बहुत शांति आई।" } },
+  { id: 3, name: "Rohan Desai", image: "https://randomuser.me/api/portraits/men/48.jpg", text: { en: "Highly recommend their Property Analysis Report before buying any real estate. It saved us from a bad investment.", hi: "किसी भी संपत्ति को खरीदने से पहले उनकी रिपोर्ट की अत्यधिक अनुशंसा करता हूं। इसने हमें गलत निवेश से बचाया।" } }
 ];
 
 export default function App() {
@@ -245,7 +246,7 @@ export default function App() {
             
             {/* Logo / Brand Image */}
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => setCurrentPage('home')}>
-              <img src="/logo.png" alt="Sachhetvastu Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Sachhetvastu Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
               <h1 className="text-xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-stone-900 to-amber-900 dark:from-stone-100 dark:to-amber-400">
                 {t.brand}
               </h1>
@@ -462,7 +463,7 @@ export default function App() {
                     <p className="text-amber-100 dark:text-stone-300 mb-8 relative z-10 leading-relaxed font-normal">{t.contactDesc}</p>
                     <div className="space-y-4 relative z-10 text-sm">
                       <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg> +91 98765 43210</p>
-                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> hello@sachhetvastu.com</p>
+                      <p className="flex items-center gap-3 font-medium"><svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> sachhetvastu@gmail.com</p>
                     </div>
                   </div>
 
@@ -646,14 +647,14 @@ export default function App() {
             
             {/* Brand Logo Image */}
             <div className="flex items-center gap-3">
-              <img src="/logo.png" alt="Sachhetvastu Logo" className="w-8 h-8 object-contain" />
+              <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Sachhetvastu Logo" className="w-8 h-8 object-contain" />
               <span className="font-bold text-stone-200 text-base">{t.brand}</span>
             </div>
 
             {/* Social Media & WhatsApp Links */}
             <div className="flex items-center gap-3">
               <a 
-                href="https://wa.me/919836345800" 
+                href="https://wa.me/9198363458000" 
                 target="_blank" rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center hover:scale-110 transition-transform shadow-md"
                 title="WhatsApp"
